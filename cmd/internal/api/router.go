@@ -1,7 +1,7 @@
 package api
 
 import (
-	"github.com/QingCold/community-server/internal/api/handler"
+	"github.com/QingCold/community-server/cmd/internal/api/handler"
 	"github.com/gin-gonic/gin"
 )
 

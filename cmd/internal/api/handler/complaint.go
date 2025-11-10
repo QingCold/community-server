@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"github.com/QingCold/community-server/internal/model"
+	"github.com/QingCold/community-server/cmd/internal/model"
 	"github.com/gin-gonic/gin"
 )
 
