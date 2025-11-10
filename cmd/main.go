@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/QingCold/community-server/cmd/internal/api"
+	"github.com/QingCold/community-server/internal/api"
 )
 
 func main() {

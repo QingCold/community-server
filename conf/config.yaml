@@ -1,0 +1,4 @@
+database:
+  driver: mysql
+  dsn: "root:ghrGHR0219@tcp(127.0.0.1:3306)/community?charset=utf8mb4&parseTime=True&loc=Local"
+
