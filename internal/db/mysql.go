@@ -3,8 +3,8 @@ package db
 import (
 	"log"
 
-	"github.com/yourname/community-server/internal/config"
-	"github.com/yourname/community-server/internal/model"
+	"github.com/QingCold/community-server/internal/config"
+	"github.com/QingCold/community-server/internal/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

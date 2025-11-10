@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/QingCold/community-server/internal/db"
+	"github.com/QingCold/community-server/internal/model"
 	"github.com/gin-gonic/gin"
-	"github.com/yourname/community-server/internal/db"
-	"github.com/yourname/community-server/internal/model"
 )
 
 func CreateComplaint(c *gin.Context) {

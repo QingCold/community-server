@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/yourname/community-server/internal/api"
-	"github.com/yourname/community-server/internal/config"
-	"github.com/yourname/community-server/internal/db"
+	"github.com/QingCold/community-server/internal/api"
+	"github.com/QingCold/community-server/internal/config"
+	"github.com/QingCold/community-server/internal/db"
 )
 
 func main() {
