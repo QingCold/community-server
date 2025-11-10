@@ -2,9 +2,11 @@ package handler
 
 import (
 	"net/http"
+	"strconv"
 
-	"github.com/QingCold/community-server/internal/model"
 	"github.com/gin-gonic/gin"
+	"github.com/yourname/community-server/internal/db"
+	"github.com/yourname/community-server/internal/model"
 )
 
 func CreateComplaint(c *gin.Context) {
@@ -13,12 +15,34 @@ func CreateComplaint(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	// TODO: 调用 service 层保存数据
+
+	// 默认状态
+	if req.Status == "" {
+		req.Status = "未处理"
+	}
+
+	// 保存到数据库
+	if err := db.DB.Create(&req).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
 	c.JSON(http.StatusOK, gin.H{"message": "投诉已提交", "data": req})
 }
 
 func GetComplaint(c *gin.Context) {
-	id := c.Param("id")
-	// TODO: 查询数据库
-	c.JSON(http.StatusOK, gin.H{"id": id, "content": "示例投诉"})
+	idStr := c.Param("id")
+	id, err := strconv.Atoi(idStr)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid id"})
+		return
+	}
+
+	var complaint model.Complaint
+	if err := db.DB.First(&complaint, id).Error; err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "complaint not found"})
+		return
+	}
+
+	c.JSON(http.StatusOK, complaint)
 }
