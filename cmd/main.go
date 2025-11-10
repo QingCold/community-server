@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+
+	"github.com/QingCold/community-server/cmd/internal/api"
 )
 
 func main() {
